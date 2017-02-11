@@ -6,7 +6,6 @@ void MAX_HEAPIFY(int*,int,int);
 void BUILD_HEAP(int*,int);
 void HEAP_SORT(int*,int);
 
-
 void MAX_HEAPIFY(int arr[],int i,int heapsize)
 {
 	int l;
