@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <limits.h>
 
+void MAX_HEAPIFY(int*,int,int);
+void BUILD_HEAP(int*,int);
+void HEAP_SORT(int*,int);
+
+
 void MAX_HEAPIFY(int arr[],int i,int heapsize)
 {
 	int l;
@@ -37,14 +42,12 @@ void MAX_HEAPIFY(int arr[],int i,int heapsize)
 
 void BUILD_HEAP(int arr[],int heapsize)
 {
-
 	int i;
 	
 	for (i = (heapsize+1)/2; i >= 0; i--) {
-
+		
 		MAX_HEAPIFY(arr,i,heapsize);
 	}
-
 }
 
 void HEAP_SORT (int arr[],int heapsize)
@@ -67,8 +70,6 @@ void HEAP_SORT (int arr[],int heapsize)
 	}
 }
 
-
-
 int main()
 {
 	int i;
@@ -82,7 +83,6 @@ int main()
 	for (i = 0;i < n; i++) {
 		
 		scanf("%d",&arr[i]);
-
 	}
 
 	BUILD_HEAP(arr,n-1);
@@ -102,9 +102,7 @@ int main()
 	for (i = 0; i < n; i++) {
 
               printf("%d\n",arr[i]);
-
        }
-
 	
 	return 0;
 }
