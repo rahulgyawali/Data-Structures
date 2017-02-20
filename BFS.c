@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<limits.h>
 
 struct Queue{
 
@@ -64,22 +63,20 @@ void bfs (int s, struct Queue* queue,int state[],int g[][1000],int v)
 
 	int i;
 	
-	eq(queue,s);
-
-	printf("INSIDE BFS :\n");	
+	eq(queue,s);  //Enqueue Source 's'	
 
 	while (!Empty(queue)) {
 
 		int x;
-		x = dq(queue);
-		state[x] = 1;
+		x = dq(queue);		//Pop Out a node From Queue
+		state[x] = 1;		//Mark it as Visited
 		printf("%d ",x);
 				
 		for (i = 0; i < v; i++) {
 
-			if (g[x][i] == 1) {
+			if (g[x][i] == 1) {  //Look for Neighbour nodes if there is one
 
-				if (state[i] == -1) {
+				if (state[i] == -1) { //If the neighbour is unvisited then push it on queue and marks as visiting node i.e. 0
 			
 					state[i] = 0;
 					eq(queue,i);
@@ -102,11 +99,11 @@ int main()
 	int s;
 	int j;
 
-	scanf("%d %d",&v,&e);
+	scanf("%d %d",&v,&e); //Take Vertices and Edges
 
 	int g[1000][1000];
 
-	for (i = 0; i <v ; i++) {
+	for (i = 0; i <v ; i++) {           //Initialiaze them
 
 		for (j = 0; j < v; j++) {
 		
@@ -114,23 +111,23 @@ int main()
 		}
 	}
 
-	for (i = 0; i < e; i++) {
+	for (i = 0; i < e; i++) {         //Take nodes which are connected by an edge  
 
 		scanf("%d %d",&x,&y);
-		g[x][y] = 1;
+		g[x][y] = 1;		//Undirected Graph
 		g[y][x] = 1;
 	}
 
-	scanf("%d",&s);
+	scanf("%d",&s);			//Take Source node 's'
 
 	int state [v];
 
 	for (i = 0; i <v ;i++) {
 
-		state[i] = -1;
+		state[i] = -1;        //Mark all the nodes as unvisited i.e. -1
 	}
 
-	state[s] = 0;
+	state[s] = 0;                 //State of Source 's' is Kept as Currently Visiting node i.e. 0
 
 	struct Queue* queue = NULL;
 	queue = create(v);
