@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 struct Queue{
-
+	
 	int front;
 	int rear;
 	int size;	
@@ -11,7 +11,6 @@ struct Queue{
 
 struct Queue *create(int capacity)
 {
-
 	struct Queue *queue = (struct Queue*)malloc(sizeof(struct Queue));
 	queue->front = queue->rear = -1;
 	queue->size = capacity -1;
@@ -52,11 +51,8 @@ int dq(struct Queue *queue)
 		int item = queue->a[queue->front];
 		queue->front = (queue->front + 1);
 		return item;
-
 	}
 }
-
-
 
 void bfs (int s, struct Queue* queue,int state[],int g[][1000],int v)
 {
@@ -80,7 +76,6 @@ void bfs (int s, struct Queue* queue,int state[],int g[][1000],int v)
 			
 					state[i] = 0;
 					eq(queue,i);
-
 				}
 			}
 		}
@@ -99,11 +94,11 @@ int main()
 	int s;
 	int j;
 
-	scanf("%d %d",&v,&e); //Take Vertices and Edges
+	scanf("%d %d",&v,&e); 				//Take Vertices and Edges
 
 	int g[1000][1000];
 
-	for (i = 0; i <v ; i++) {           //Initialiaze them
+	for (i = 0; i <v ; i++) {           		//Initialiaze them
 
 		for (j = 0; j < v; j++) {
 		
@@ -111,20 +106,20 @@ int main()
 		}
 	}
 
-	for (i = 0; i < e; i++) {         //Take nodes which are connected by an edge  
-
+	for (i = 0; i < e; i++) { 
+							//Take nodes which are connected by an edge  
 		scanf("%d %d",&x,&y);
-		g[x][y] = 1;		//Undirected Graph
+		g[x][y] = 1;				//Undirected Graph
 		g[y][x] = 1;
 	}
 
-	scanf("%d",&s);			//Take Source node 's'
+	scanf("%d",&s);					//Take Source node 's'
 
 	int state [v];
 
 	for (i = 0; i <v ;i++) {
 
-		state[i] = -1;        //Mark all the nodes as unvisited i.e. -1
+		state[i] = -1;        			//Mark all the nodes as unvisited i.e. -1
 	}
 
 	state[s] = 0;                 //State of Source 's' is Kept as Currently Visiting node i.e. 0
