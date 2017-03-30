@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <limits.h>
 
+void MIN_HEAPIFY(int*,int,int);
+void BUILD_HEAP(int*,int);
+int HEAP_MIN(int*);
+int EXTRACT_MIN(int*,int*);
+void DECREASE_KEY(int*,int,int);
+void INSERT(int*,int,int);
+	
 void MIN_HEAPIFY(int arr[],int i,int heapsize)
 {
 	int l;
